@@ -1,13 +1,14 @@
-'use client';
+"use client";
 
-import { useProtectedRoute } from '@/hooks/use-protected-route';
-import { useAuth } from '@/contexts/auth-context';
-import { DepartmentList } from '@/components/departments/DepartmentList';
-import { DepartmentForm } from '@/components/departments/DepartmentForm';
-import { useState } from 'react';
+import { useProtectedRoute } from "@/hooks/use-protected-route";
+import { useAuth } from "@/contexts/auth-context";
+import { DepartmentList } from "@/components/departments/DepartmentList";
+import { DepartmentForm } from "@/components/departments/DepartmentForm";
+import { Header } from "@/components/shared/Header";
+import { useState } from "react";
 
 export default function Home() {
-  const { user, logout, token, isLoading } = useAuth();
+  const { token, isLoading } = useAuth();
   const isAuthenticated = useProtectedRoute();
   const [showCreateForm, setShowCreateForm] = useState(false);
 
@@ -21,18 +22,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen p-8">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-2xl font-bold">Departments</h1>
-        <div className="flex items-center gap-4">
-          <span>Welcome, {user?.username}!</span>
-          <button
-            onClick={logout}
-            className="px-4 py-2 text-sm text-white bg-red-500 rounded hover:bg-red-600"
-          >
-            Logout
-          </button>
-        </div>
-      </div>
+      <Header title="Departments" />
 
       {showCreateForm ? (
         <div className="mb-8">

@@ -105,6 +105,7 @@ src/
 ├── components/
 │   ├── departments/       # Department-related components
 │   ├── sub-departments/   # Sub-department-related components
+│   ├── shared/           # Shared components (header, etc.)
 │   └── providers/         # Context providers
 ├── contexts/              # React contexts
 └── hooks/                 # Custom React hooks
