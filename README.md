@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Department Management System
 
-## Getting Started
+A Next.js application for managing departments and sub-departments with GraphQL integration.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Authentication
+
+- Secure login system with JWT tokens
+- Protected routes requiring authentication
+- Logout functionality
+
+Test Credentials:
+
+```
+username: admin
+password: admin123
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Department Management
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- View all departments with pagination
+- Create new departments
+- Update department names
+- Delete departments and their sub-departments
+- Search departments by name
+- Responsive grid layout for department cards
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Sub-Department Management
 
-## Learn More
+- View all sub-departments
+- Create new sub-departments with parent department selection
+- Update sub-department names
+- Delete sub-departments
+- Search sub-departments by name or parent department
+- Responsive grid layout for sub-department cards
 
-To learn more about Next.js, take a look at the following resources:
+## Installation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Clone the Repository**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   git clone https://github.com/yourusername/tglobal-client.git
+   cd tglobal-client
+   ```
 
-## Deploy on Vercel
+2. **Install Dependencies**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Environment Setup**
+   Create a `.env.local` file in the root directory with:
+
+   ```env
+   NEXT_PUBLIC_GRAPHQL_URL=your_graphql_api_url
+   ```
+
+4. **Run Development Server**
+   ```bash
+   npm run dev
+   ```
+   The application will be available at `http://localhost:3000`
+
+## Usage
+
+1. **Authentication**
+
+   - Visit the login page at `/login`
+   - Enter your credentials to access the system
+   - Use the logout button in the header to end your session
+
+2. **Department Management**
+
+   - Navigate to the departments page at `/`
+   - Use the "Create Department" button to add new departments
+   - Click on department cards to view options for editing or deletion
+   - Use the search bar to filter departments by name
+   - Navigate through pages using the pagination controls
+
+3. **Sub-Department Management**
+   - Navigate to the sub-departments page at `/sub-departments`
+   - Use the "Create Sub-Department" button to add new sub-departments
+   - Select a parent department when creating sub-departments
+   - Click on sub-department cards to view options for editing or deletion
+   - Use the search bar to filter sub-departments by name or parent department
+
+## Technologies Used
+
+- **Frontend Framework**: Next.js 13+ with App Router
+- **UI Library**: React 18+
+- **Styling**: Tailwind CSS
+- **State Management**: React Context
+- **API Integration**: Apollo Client
+- **Authentication**: JWT
+- **Form Handling**: React Hook Form
+- **Type Safety**: TypeScript
+
+## Project Structure
+
+```
+src/
+├── app/                    # Next.js app router pages
+├── components/
+│   ├── departments/       # Department-related components
+│   ├── sub-departments/   # Sub-department-related components
+│   └── providers/         # Context providers
+├── contexts/              # React contexts
+└── hooks/                 # Custom React hooks
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License
