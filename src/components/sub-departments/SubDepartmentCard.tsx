@@ -85,8 +85,8 @@ export function SubDepartmentCard({ subDepartment, onRefetch }: SubDepartmentCar
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-lg p-6 max-w-sm w-full">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Confirm Delete</h3>
-            <p className="mb-6 text-gray-700">
-              Are you sure you want to delete the sub-department "{subDepartment.name}"?
+            <p className="text-sm text-gray-500">
+              Are you sure you want to delete &quot;{subDepartment.name}&quot;? This action cannot be undone.
             </p>
             <div className="flex justify-end gap-3">
               <button

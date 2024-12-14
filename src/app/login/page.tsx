@@ -45,7 +45,7 @@ export default function LoginPage() {
           },
         },
       });
-    } catch (err) {
+    } catch {
       // Error is handled by onError callback
     }
   };
