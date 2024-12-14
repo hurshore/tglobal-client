@@ -53,18 +53,9 @@ export function DepartmentList() {
     },
   });
 
-  const handleSearch = async (term: string) => {
+  const handleSearch = (term: string) => {
     setSearchTerm(term);
     setPage(1);
-    if (term) {
-      try {
-        const result = await refetch();
-        // If we want to filter by name, we'll need to do it client-side
-        // since the backend doesn't support name filtering
-      } catch (error) {
-        console.error('Error searching departments:', error);
-      }
-    }
   };
 
   const handlePageChange = (newPage: number) => {
@@ -76,7 +67,7 @@ export function DepartmentList() {
 
   const { items: departments, total, hasMore } = data?.departments || { items: [], total: 0, hasMore: false };
 
-  // Client-side filtering since the backend doesn't support it
+  // Client-side filtering
   const filteredDepartments = searchTerm
     ? departments.filter(dept => 
         dept.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -97,12 +88,18 @@ export function DepartmentList() {
         ))}
       </div>
 
+      {filteredDepartments.length === 0 && (
+        <p className="text-center text-gray-500 py-4">
+          {searchTerm ? 'No departments found matching your search.' : 'No departments found.'}
+        </p>
+      )}
+
       <Pagination
         currentPage={page}
         totalItems={total}
         itemsPerPage={limit}
-        hasMore={hasMore}
         onPageChange={handlePageChange}
+        hasMore={hasMore}
       />
     </div>
   );
