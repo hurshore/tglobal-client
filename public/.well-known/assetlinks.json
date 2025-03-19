@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.olyves.olyves",
+      "sha256_cert_fingerprints": [
+        "11:36:0A:9E:0C:3B:4C:77:08:98:B3:12:10:34:ED:0D:1E:34:43:DE:60:FF:39:B8:0C:DE:A5:F2:07:1B:E8:26"
+      ]
+    }
+  }
+]
